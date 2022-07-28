@@ -33,6 +33,6 @@ sudo sed -i 's|replaceme|/var/log/'"$value1"'/'"$value1"'L'"$value2"'.log|g' /va
 
 sudo chmod +x /var/log/"$value1"/query.sh
 
-sudo rm /usr/bin/query
+sudo rm /usr/local/bin/query
 
 sudo ln -s /var/log/"$value1"/query.sh /usr/local/bin/query
