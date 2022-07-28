@@ -14,6 +14,8 @@ sudo apt update -y
 
 sudo apt install -y rsyslog 
 
+sudo apt install -y ntp
+
 sudo sed -i 's/#module(load="imudp")/module(load="imudp")/g' /etc/rsyslog.conf
 sudo sed -i 's/#input(type="imudp" port="514")/input(type="imudp" port="514")/g' /etc/rsyslog.conf
 
