@@ -5,5 +5,5 @@ read -p "Enter Value3 : " data3
 
 
 #grep "$data1" /var/log/xyz/xyz.log | grep "$data2" | grep "$data3" 
-grep "$data1" /var/log/8046/8046L1.log | grep "$data2" | grep "$data3" 
+grep "$data1" replaceme | grep "$data2" | grep "$data3" 
 
