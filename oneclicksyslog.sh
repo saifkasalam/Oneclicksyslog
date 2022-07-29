@@ -15,6 +15,8 @@ sudo apt update -y
 sudo apt install -y rsyslog 
 
 sudo apt install -y ntp
+sudo apt install -y vim
+
 
 sudo sed -i 's/#module(load="imudp")/module(load="imudp")/g' /etc/rsyslog.conf
 sudo sed -i 's/#input(type="imudp" port="514")/input(type="imudp" port="514")/g' /etc/rsyslog.conf
@@ -25,7 +27,6 @@ sudo sed -i 's/#input(type="imtcp" port="514")/input(type="imtcp" port="514")/g'
 
 sudo echo local7.* /var/log/"$value1"/"$value1"L"$value2".log >> /etc/rsyslog.d/50-default.conf
 
-sudo service rsyslog restart
 
 sudo cp query.sh /var/log/"$value1"/query.sh
 
@@ -36,3 +37,7 @@ sudo chmod +x /var/log/"$value1"/query.sh
 sudo rm /usr/local/bin/query
 
 sudo ln -s /var/log/"$value1"/query.sh /usr/local/bin/query
+
+sudo vim -esu NONE +'g/\v^(.*)\n\1$/d' +wq /etc/rsyslog.d/50-default.conf
+
+sudo service rsyslog restart
